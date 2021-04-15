@@ -35,7 +35,7 @@ class UpProjWithSkip(nn.Module):
 
 class MyUnet(smp.Unet):
     """
-    Customize Unet by replacing above UpProjWithSkip with normal decode block
+    Customize Unet by replacing  normal decode blocks with the above UpProjWithSkip
     """
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
