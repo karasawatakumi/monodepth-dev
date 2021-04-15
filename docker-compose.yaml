@@ -1,0 +1,10 @@
+version: "2.3"
+services:
+  dev:
+    runtime: nvidia
+    build:
+      context: ./docker
+    volumes:
+      - .:/work
+      - $HOME/data/nyu2/data:/work/data
+    shm_size: 2g

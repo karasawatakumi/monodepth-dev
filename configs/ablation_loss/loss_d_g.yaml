@@ -1,0 +1,4 @@
+LOSS:
+  LAMBDA: 1
+  MU: 0
+OUTPUT_DIR: 'results_loss_d_g'

@@ -1,0 +1,7 @@
+MODEL:
+  # model type:
+  # 'DeepLabV3', 'DeepLabV3Plus', 'FPN', 'Linknet',
+  # 'PAN', 'PSPNet', 'Unet', 'UnetPlusPlus'
+  TYPE: 'Unet'
+  BACKBONE: 'efficientnet-b4'
+OUTPUT_DIR: 'results_unet_effb4'

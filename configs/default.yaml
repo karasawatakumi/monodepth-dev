@@ -1,0 +1,44 @@
+DATASET:
+  TRAIN_CSV: './data/nyu2_train.csv'
+  TEST_CSV: './data/nyu2_test.csv'
+MODEL:
+  # model type:
+  # 'DeepLabV3', 'DeepLabV3Plus', 'FPN', 'Linknet',
+  # 'PAN', 'PSPNet', 'Unet', 'UnetPlusPlus'
+  TYPE: 'UnetPlusPlus'
+  BACKBONE: 'efficientnet-b0'
+SOLVER:
+  BASE_LR: 0.0001
+  BATCHSIZE: 8
+  NUM_WORKERS: 4
+  MOMENTUM: 0.9
+  WEIGHT_DECAY: 0.0001
+  LR_STEP_SIZE: 5
+  LR_GAMMA: 0.1
+  EPOCH: 20
+  SAVE_INTERVAL: 1
+DATA:
+  NORMALIZE_MEAN: [0.485, 0.456, 0.406]
+  NORMALIZE_STD: [0.229, 0.224, 0.225]
+  PCA_LIGHTING: 0.1
+  PCA_EIGVAL: [0.2175, 0.0188, 0.0045]
+  PCA_EIGVEC: [[-0.5675,  0.7192,  0.4009],
+               [-0.5808, -0.0045, -0.8140],
+               [-0.5836, -0.6948,  0.4203]]
+  SCALE_SIZE_MIN: 240
+  RANDOM_ROT_DEGREE: 5
+  CENTER_CROP_SIZE: [288, 224] # [304, 228], tmp for divisibility
+  OUTPUT_SIZE: [288, 224] # [152, 114]
+  RANDOM_BRIGHTNESS: 0.4
+  RANDOM_CONTRAST: 0.4
+  RANDOM_SATURATION: 0.4
+LOSS:
+  ALPHA: 0.5
+  LAMBDA: 1
+  MU: 1
+SEED: 1
+TEST:
+  BATCHSIZE: 1
+  THRESHOLD_EDGE: 0.25
+DEVICE: 'cuda'
+OUTPUT_DIR: 'results'
