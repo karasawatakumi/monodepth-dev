@@ -1,5 +1,6 @@
 import argparse
 import os
+
 import torch
 from omegaconf import OmegaConf, DictConfig
 from pytorch_lightning import Trainer
@@ -29,7 +30,7 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def get_gpus(args):
+def get_gpus(args: argparse.Namespace):
     if args.gpu_ids is not None:
         gpus = args.gpu_ids
     elif args.n_gpu is not None:
@@ -40,7 +41,7 @@ def get_gpus(args):
     return gpus
 
 
-def get_trainer(args, config) -> Trainer:
+def get_trainer(args: argparse.Namespace, config: DictConfig) -> Trainer:
 
     # amp
     precision = 16 if args.amp is not None else 32
